@@ -13,6 +13,11 @@
 // Returns true if the player name matches one of the existing players
 bool player_exists(player *players, int num_players, char *name)
 {
+    for (int i = 0; i < num_players; i++) {
+        if (strcmp(players[i].name, name) == 0) {
+            return true;
+        }
+    }    
     return false;
 }
 
@@ -20,5 +25,30 @@ bool player_exists(player *players, int num_players, char *name)
 // player given their name
 void update_score(player *players, int num_players, char *name, int score)
 {
-    
+     for (int i = 0; i < num_players; i++) {
+        if (strcmp(players[i].name, name) == 0) {
+            players[i].score += score;
+            return;
+        }
+    }
 }
+
+// Displays the players and their scores, sorted from highest to lowest
+void show_results(player *players, int num_players) {
+    // Sort players by score in descending order
+    for (int i = 0; i < num_players - 1; i++) {
+        for (int j = i + 1; j < num_players; j++) {
+            if (players[j].score > players[i].score) {
+                player temp = players[i];
+                players[i] = players[j];
+                players[j] = temp;
+            }
+        }
+    }
+
+    // Display final rankings
+    printf("\nFinal Scores:\n");
+    for (int i = 0; i < num_players; i++) {
+        printf("%s: $%d\n", players[i].name, players[i].score);
+    }
+}    
