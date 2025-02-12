@@ -65,13 +65,7 @@ void initialize_game(void)
         questions[index].answered = false;
         index++;
 
-        strcpy(questions[index].category, "History");
-        strcpy(questions[index].question, "Should You tell your man you got engaged?");
-        strcpy(questions[index].answer, "Mickael");
-        questions[index].value = 400;
-        questions[index].answered = false;
-        index++;
-
+       
         strcpy(questions[index].category, "History");
         strcpy(questions[index].question, "Who discovered gravity?");
         strcpy(questions[index].answer, "Newton");
