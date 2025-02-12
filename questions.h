@@ -50,4 +50,8 @@ extern bool already_answered(char *category, int value);
 // Marks a question as answered
 extern void mark_question_answered(char *category, int value);
 
+// Returns true if all questions have been answered
+extern bool all_questions_answered(void);
+
+
 #endif /* QUESTIONS_H_ */
