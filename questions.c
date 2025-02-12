@@ -111,6 +111,18 @@ bool already_answered(char *category, int value)
     return false;
 }
 
+
+// Returns true if all questions have been answered
+bool all_questions_answered(void) {
+    for (int i = 0; i < NUM_QUESTIONS; i++) {
+        if (!questions[i].answered) {
+            return false; // At least one question is still available
+        }
+}
+    return true; // All questions have been answered
+}
+
+
 void mark_question_answered(char *category, int value) {
     for (int i = 0; i < NUM_QUESTIONS; i++) {
         if (strcmp(questions[i].category, category) == 0 && questions[i].value == value) {
