@@ -97,7 +97,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
         display_question(category, value);
         printf("Enter your answer: ");
         fgets(buffer, BUFFER_LEN, stdin);
-        sscanf(buffer, " %[^]", answer);
+        sscanf(buffer, " %[^\n]", answer);
 
         if (valid_answer(category, value, answer)) {
             printf("Correct! %s earns $%d\n", player_name, value);
