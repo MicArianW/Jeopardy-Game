@@ -19,7 +19,7 @@
 
 // Put global environment variables here
 
-// Processes the answer from the user containing what is or who is and tokenizes it to retrieve the answer.
+// Function to process user input, extracting the actual answer by tokenizing input
 void tokenize(char *input, char **tokens) {
     char *token = strtok(input, " ");
     int i = 0;
@@ -30,9 +30,11 @@ void tokenize(char *input, char **tokens) {
     tokens[i] = NULL;
 }
 
-// Displays the game results for each player, their name and final score, ranked from first to last place
+// Function to display final scores in descending order
 void show_results(player *players, int num_players) {
     printf("\nFinal Scores:\n");
+
+    // Sort players based on their scores in descending order
     for (int i = 0; i < num_players - 1; i++) {
         for (int j = i + 1; j < num_players; j++) {
             if (players[j].score > players[i].score) {
@@ -67,7 +69,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
         players[i].score = 0;
     }
     
-    // Perform an infinite loop getting command input from users until game ends
+    // Game loop: continues until all questions are answered
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL) {
         // Call functions from the questions and players source files
         char player_name[50];
@@ -75,6 +77,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
         int value;
         char answer[100];
 
+        // Display available categories
         display_categories();
         
         // Execute the game until all questions are answered
@@ -89,16 +92,18 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
             continue;
         }
     
-
+        // Prompt player to select a category
         printf("Enter category and dollar value: ");
         fgets(buffer, BUFFER_LEN, stdin);
         sscanf(buffer, "%s %d", category, &value);
 
+        // Validate if player exists
         if (already_answered(category, value)) {
             printf("Question already answered. Choose another.\n");
             continue;
         }
 
+        // Display the selected question
         display_question(category, value);
         printf("Enter your answer: ");
         fgets(buffer, BUFFER_LEN, stdin);
