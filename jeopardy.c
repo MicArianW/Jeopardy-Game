@@ -81,7 +81,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
         printf("Enter player's name selecting the category: ");
         sscanf(buffer, "%s", player_name);
         if (!player_exists(players, NUM_PLAYERS, player_name)) {
-            printf("Invalid player name!\n");
+            
             continue;
         }
 
