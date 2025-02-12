@@ -63,6 +63,13 @@ void initialize_game(void)
         strcpy(questions[index].answer, "Canada Day");
         questions[index].value = 100;
         questions[index].answered = false;
+        index++;  
+
+        strcpy(questions[index].category, "History");
+        strcpy(questions[index].question, "Should You tell your man you got engaged?");
+        strcpy(questions[index].answer, "Mickael");
+        questions[index].value = 500;
+        questions[index].answered = false;
         index++;
 
        
