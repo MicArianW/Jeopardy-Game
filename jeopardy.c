@@ -79,11 +79,16 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
         
         // Execute the game until all questions are answered
         printf("Enter player's name selecting the category: ");
-        sscanf(buffer, "%s", player_name);
+        if (fgets(buffer, BUFFER_LEN, stdin) == NULL) {
+            break;  // Exit loop if input fails
+        }
+        sscanf(buffer, " %[^\n]", player_name);
+
         if (!player_exists(players, NUM_PLAYERS, player_name)) {
-            
+            printf("Player not found. Try again.\n");
             continue;
         }
+    
 
         printf("Enter category and dollar value: ");
         fgets(buffer, BUFFER_LEN, stdin);
