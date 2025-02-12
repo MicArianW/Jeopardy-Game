@@ -27,35 +27,93 @@ void initialize_game(void)
     
     // Populate the questions array
     int index = 0;
-    for (int i = 0; i < 3; i++) {
-        strcpy(questions[index].category, categories[i]);
+    //Science question
+    
+        strcpy(questions[index].category, "Science");
+        strcpy(questions[index].question, "What is the smallest unit of life?");
+        strcpy(questions[index].answer, "Cell");
+        questions[index].value = 100;
+        questions[index].answered = false;
+        index++;
+        strcpy(questions[index].category, "Science");
         strcpy(questions[index].question, "What is the chemical symbol for water?");
         strcpy(questions[index].answer, "H2O");
+        questions[index].value = 200;
+        questions[index].answered = false;
+        index++;
+    
+        strcpy(questions[index].category, "Science");
+        strcpy(questions[index].question, "What is the chemical formula for table salt?");
+        strcpy(questions[index].answer, "NaCl");
+        questions[index].value = 300;
+        questions[index].answered = false;
+        index++;
+    
+        strcpy(questions[index].category, "Science");
+        strcpy(questions[index].question, "Which famous equation describes the relationship between energy and mass?");
+        strcpy(questions[index].answer, "E=mc²");
+        questions[index].value = 400;
+        questions[index].answered = false;
+        index++;
+    
+//HISTORY QUESTION 
+    
+        strcpy(questions[index].category, "History");
+        strcpy(questions[index].question, "What is Canada’s national holiday, celebrated on July 1st?");
+        strcpy(questions[index].answer, "Canada Day");
         questions[index].value = 100;
         questions[index].answered = false;
         index++;
 
-        strcpy(questions[index].category, categories[i]);
+        strcpy(questions[index].category, "History");
         strcpy(questions[index].question, "Who discovered gravity?");
         strcpy(questions[index].answer, "Newton");
         questions[index].value = 200;
         questions[index].answered = false;
         index++;
 
-        strcpy(questions[index].category, categories[i]);
+        strcpy(questions[index].category, "History");
+        strcpy(questions[index].question, "What was the name of the first man to walk on the moon?");
+        strcpy(questions[index].answer, "Neil Armstrong");
+        questions[index].value = 300;
+        questions[index].answered = false;
+        index++;
+    
+        strcpy(questions[index].category, "History");
+        strcpy(questions[index].question, "What was the name of the agreement that created Canada as a country?");
+        strcpy(questions[index].answer, "British North America Act (BNA Act)");
+        questions[index].value = 400;
+        questions[index].answered = false;
+        index++;
+// GEOGRAPHY QUESTION 
+        strcpy(questions[index].category, "Geography");
+        strcpy(questions[index].question, "what is the most populated country in the world?");
+        strcpy(questions[index].answer, "India");
+        questions[index].value = 100;
+        questions[index].answered = false;
+        index++;
+        
+        strcpy(questions[index].category, "Geography");
+        strcpy(questions[index].question, "What continent is Nigeria located on?");
+        strcpy(questions[index].answer, "South America");
+        questions[index].value = 200;
+        questions[index].answered = false;
+        index++;
+        
+        strcpy(questions[index].category, "Geography");
         strcpy(questions[index].question, "Which is the largest continent?");
         strcpy(questions[index].answer, "Asia");
         questions[index].value = 300;
         questions[index].answered = false;
         index++;
 
-        strcpy(questions[index].category, categories[i]);
+        strcpy(questions[index].category, "Geography");
         strcpy(questions[index].question, "What planet is known as the Red Planet?");
         strcpy(questions[index].answer, "Mars");
         questions[index].value = 400;
         questions[index].answered = false;
         index++;    
-    }
+    
 }
 
 // Displays each of the remaining categories and question dollar values that have not been answered
