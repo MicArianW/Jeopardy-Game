@@ -25,10 +25,33 @@ void initialize_game(void)
     // Populate the questions array
     int index = 0;
     for (int i = 0; i < 3; i++) {
-        questions[index++] = (question){categories[i], "What is the chemical symbol for water?", "H2O", 100, false};
-        questions[index++] = (question){categories[i], "Who discovered gravity?", "Newton", 200, false};
-        questions[index++] = (question){categories[i], "Which is the largest continent?", "Asia", 300, false};
-        questions[index++] = (question){categories[i], "What planet is known as the Red Planet?", "Mars", 400, false};
+        strcpy(questions[index].category, categories[i]);
+        strcpy(questions[index].question, "What is the chemical symbol for water?");
+        strcpy(questions[index].answer, "H2O");
+        questions[index].value = 100;
+        questions[index].answered = false;
+        index++;
+
+        strcpy(questions[index].category, categories[i]);
+        strcpy(questions[index].question, "Who discovered gravity?");
+        strcpy(questions[index].answer, "Newton");
+        questions[index].value = 200;
+        questions[index].answered = false;
+        index++;
+
+        strcpy(questions[index].category, categories[i]);
+        strcpy(questions[index].question, "Which is the largest continent?");
+        strcpy(questions[index].answer, "Asia");
+        questions[index].value = 300;
+        questions[index].answered = false;
+        index++;
+
+        strcpy(questions[index].category, categories[i]);
+        strcpy(questions[index].question, "What planet is known as the Red Planet?");
+        strcpy(questions[index].answer, "Mars");
+        questions[index].value = 400;
+        questions[index].answered = false;
+        index++;    
     }
 }
 
