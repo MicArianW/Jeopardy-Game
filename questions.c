@@ -59,11 +59,12 @@ void initialize_game(void)
 //HISTORY QUESTION  
 
         strcpy(questions[index].category, "History");
-        strcpy(questions[index].question, "Should You tell your man you got engaged?");
-        strcpy(questions[index].answer, "HELL NO !!!");
+        strcpy(questions[index].question, "What is Canada’s national holiday, celebrated on July 1st?");
+        strcpy(questions[index].answer, "Canada Day");
         questions[index].value = 100;
         questions[index].answered = false;
-        index++;
+        index++; 
+
 
        
         strcpy(questions[index].category, "History");
