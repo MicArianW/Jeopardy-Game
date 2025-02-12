@@ -115,7 +115,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
          // Check if all questions have been answered
         if (all_questions_answered()) {
             break; // Exit loop when game is over
-    }
+        }
     
     // Display the final results and exit
     show_results(players, NUM_PLAYERS);    
