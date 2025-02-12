@@ -10,8 +10,10 @@
 #include <string.h>
 #include <stdbool.h>
 #include "players.h"
+dddddddddd
 
-// Function implementation for player_exists
+// Function to check if a player exists in the game
+// Iterates through the list of players and compares names
 bool player_exists(player *players, int num_players, char *name) {
     for (int i = 0; i < num_players; i++) {
         if (strcmp(players[i].name, name) == 0) {
@@ -21,7 +23,8 @@ bool player_exists(player *players, int num_players, char *name) {
     return false; // Player not found
 }
 
-// Function implementation for update_score
+// Function to update the score of a player
+// Finds the player by name and adds the given value to their score
 void update_score(player *players, int num_players, char *name, int value) {
     for (int i = 0; i < num_players; i++) {
         if (strcmp(players[i].name, name) == 0) {
@@ -31,7 +34,8 @@ void update_score(player *players, int num_players, char *name, int value) {
     }
 }
 
-// Function to compare players by score (for sorting)
+// Function to compare players by score for sorting purposes
+// Used for ranking players in descending order of their scores
 int compare_players(const void *a, const void *b) {
     player *playerA = (player *)a;
     player *playerB = (player *)b;
