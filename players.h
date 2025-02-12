@@ -25,4 +25,8 @@ bool player_exists(player *players, int num_players, char *name);
 // player given their name
 void update_score(player *players, int num_players, char *name, int score);
 
+// Function to print players sorted by earnings
+void print_player_rankings(player *players, int num_players);
+
+
 #endif /* PLAYERS_H_ */
