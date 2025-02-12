@@ -23,7 +23,7 @@ void display_categories(void)
 }
 
 // Displays the question for the category and dollar value
-void display_question(char *category, int value)
+void display_question(__attribute__((unused)) (char *category, __attribute__((unused)) int value)
 {
 
 }
