@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "questions.h"
 
 // Function implementation for player_exists
 bool player_exists(player *players, int num_players, char *name) {
