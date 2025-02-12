@@ -17,11 +17,7 @@
 #define NUM_QUESTIONS 12
 
 // List of 3 categories as array of strings
-char categories[NUM_CATEGORIES][MAX_LEN] = {
-    "programming", 
-    "algorithms", 
-    "databases"
-};
+extern char categories[NUM_CATEGORIES][MAX_LEN];
 
 // Questions struct for each question
 typedef struct {
