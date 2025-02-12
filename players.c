@@ -8,47 +8,79 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "players.h"
+#include <stdbool.h>
+#include "questions.h"
 
-// Returns true if the player name matches one of the existing players
-bool player_exists(player *players, int num_players, char *name)
+#define NUM_QUESTIONS 12
+
+// Define an array to hold questions
+question questions[NUM_QUESTIONS];
+
+// Initializes the array of questions for the game
+void initialize_game(void)
 {
-    for (int i = 0; i < num_players; i++) {
-        if (strcmp(players[i].name, name) == 0) {
-            return true;
-        }
-    }    
-    return false;
+    // Define categories
+    char *categories[] = {"Science", "History", "Geography"};
+    
+    // Populate the questions array
+    int index = 0;
+    for (int i = 0; i < 3; i++) {
+        questions[index++] = (question){categories[i], "What is the chemical symbol for water?", "H2O", 100, false};
+        questions[index++] = (question){categories[i], "Who discovered gravity?", "Newton", 200, false};
+        questions[index++] = (question){categories[i], "Which is the largest continent?", "Asia", 300, false};
+        questions[index++] = (question){categories[i], "What planet is known as the Red Planet?", "Mars", 400, false};
+    }
 }
 
-// Go through the list of players and update the score for the 
-// player given their name
-void update_score(player *players, int num_players, char *name, int score)
+// Displays each of the remaining categories and question dollar values that have not been answered
+void display_categories(void)
 {
-     for (int i = 0; i < num_players; i++) {
-        if (strcmp(players[i].name, name) == 0) {
-            players[i].score += score;
+    printf("\nAvailable Categories:\n");
+    for (int i = 0; i < NUM_QUESTIONS; i++) {
+        if (!questions[i].answered)
+        {
+            printf("%s - $%d\n", questions[i].category, questions[i].value);
+        }
+    }
+}
+
+// Displays the question for the category and dollar value
+void display_question(char *category, int value)
+{
+    for (int i = 0; i < NUM_QUESTIONS; i++) {
+        if (strcmp(questions[i].category, category) == 0 && questions[i].value == value && !questions[i].answered)
+        {
+            printf("Question: %s\n", questions[i].question);
             return;
         }
     }
+    printf("Question not found or already answered.\n");
 }
 
-// Displays the players and their scores, sorted from highest to lowest
-void show_results(player *players, int num_players) {
-    // Sort players by score in descending order
-    for (int i = 0; i < num_players - 1; i++) {
-        for (int j = i + 1; j < num_players; j++) {
-            if (players[j].score > players[i].score) {
-                player temp = players[i];
-                players[i] = players[j];
-                players[j] = temp;
+// Returns true if the answer is correct for the question for that category and dollar value
+bool valid_answer(char *category, int value, char *answer)
+{
+    for (int i = 0; i < NUM_QUESTIONS; i++) {
+        if (strcmp(questions[i].category, category) == 0 && questions[i].value == value)
+        {
+            if (strcmp(questions[i].answer, answer) == 0)
+            {
+                questions[i].answered = true;
+                return true;
             }
         }
     }
+    return false;
+}
 
-    // Display final rankings
-    printf("\nFinal Scores:\n");
-    for (int i = 0; i < num_players; i++) {
-        printf("%s: $%d\n", players[i].name, players[i].score);
+// Returns true if the question has already been answered
+bool already_answered(char *category, int value)
+{
+    for (int i = 0; i < NUM_QUESTIONS; i++) {
+        if (strcmp(questions[i].category, category) == 0 && questions[i].value == value)
+        {
+            return questions[i].answered;
+        }
     }
-}    
+    return false;
+}
