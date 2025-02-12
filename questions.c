@@ -13,11 +13,17 @@
 // Define an array to hold questions (only in questions.c)
 question questions[NUM_QUESTIONS];
 
+// Define categories
+char categories[NUM_CATEGORIES][MAX_LEN] = {
+    "Science", 
+    "History", 
+    "Geography"
+};
+
 // Initializes the array of questions for the game
 void initialize_game(void)
 {
-    // Define categories
-    char *categories[] = {"Science", "History", "Geography"};
+
     
     // Populate the questions array
     int index = 0;
