@@ -112,7 +112,9 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char *argv[])
         }
 
         mark_question_answered(category, value);
-        memset(buffer, 0, BUFFER_LEN); // Clear buffer        
+         // Check if all questions have been answered
+        if (all_questions_answered()) {
+            break; // Exit loop when game is over
     }
     
     // Display the final results and exit
