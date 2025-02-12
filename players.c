@@ -10,7 +10,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include "players.h"
-dddddddddd
 
 // Function to check if a player exists in the game
 // Iterates through the list of players and compares names
